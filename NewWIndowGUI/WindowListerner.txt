@@ -1,0 +1,28 @@
+1.frame.addWindowListener(...);: This line adds a WindowListener to the frame (frame). 
+A WindowListener is an interface that listens for events related to a window, 
+such as opening, closing, or resizing.
+
+2.new java.awt.event.WindowAdapter() { ... }: 
+This creates an instance of an anonymous inner class that extends WindowAdapter, 
+which is an abstract class implementing the WindowListener interface. 
+By using an anonymous inner class, you can define and instantiate the WindowAdapter subclass in one step.
+
+3.@Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { ... }: 
+This overrides the windowClosing method of WindowAdapter. 
+This method is called when the window is in the process of being closed,
+typically because the user clicked the "X" button in the window's title bar.
+
+4.exitApplication();: This calls the exitApplication() method defined in the outer class (LaunchPageDemo). 
+When the window closing event occurs (i.e., the user clicks the "X" button to close the window), 
+this method is called, and exitApplication() is invoked,
+which sets the default close operation to EXIT_ON_CLOSE and disposes of the frame, 
+effectively closing the application.
+
+In summary, this part of the code adds a WindowListener to the frame that listens for the window closing event.
+When the window closing event occurs, it calls the exitApplication() method, 
+which ensures that the application is properly closed by setting the appropriate default close operation and disposing of the frame.
+
+
+
+
+
