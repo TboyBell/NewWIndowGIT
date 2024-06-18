@@ -12,7 +12,6 @@ public class LauchPageDemo implements ActionListener{
 	JFrame frame = new JFrame();
 	JButton button = new JButton("New-Window");                 
 	JButton button2 = new JButton("Exit-Window");                             
-	ButtonEmptyPage bp = new ButtonEmptyPage();
 	
 	LauchPageDemo () {
 		
@@ -24,12 +23,7 @@ public class LauchPageDemo implements ActionListener{
 		button2.setFocusable(false);
 		button2.addActionListener(this);
 		
-		// This is under the circumstances that,
-		// I choose to declare and define the button3 here 
-		// So I could use (Frame.dispode),
-		// When I'm Creating  the Action Listener.
-		bp.button3.addActionListener(this); 
-		frame.add(bp.button3);
+		
 		
 		
 		frame.add(button2);
@@ -57,17 +51,12 @@ public class LauchPageDemo implements ActionListener{
 	@Override
 	 public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
-            frame.dispose(); // Close the current frame
-            NewWindow window = new NewWindow(); // Open a new window
+        	frame.dispose();
+        	EmptyPage ep = new EmptyPage();
         } else if (e.getSource() == button2) {
         	exitApplication(); // Exit the application
         }
-        //Because we wanted to Use (Frame.Dispose)
-        else if (e.getSource()==bp.button3) {
-        	frame.dispose();
-        	EmptyPage ep = new EmptyPage();
-        }
-
+        
 	}
 	
 }
